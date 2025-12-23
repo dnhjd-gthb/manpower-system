@@ -11,10 +11,12 @@
     table {
       border-collapse: collapse;
       width: 100%;
+      margin-top: 10px;
+      font-size: 12px;
     }
     th, td {
       border: 1px solid #333;
-      padding: 6px;
+      padding: 4px;
       text-align: center;
     }
     th {
@@ -23,12 +25,19 @@
     input {
       width: 100%;
       box-sizing: border-box;
+      font-size: 12px;
+    }
+    button {
+      padding: 8px 12px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
 
 <h1>Manpower Database</h1>
+
+<button onclick="addRow()">➕ Add Row</button>
 
 <table>
   <thead>
@@ -38,11 +47,11 @@
       <th>FIRST NAME</th>
       <th>NAME IN THEA</th>
       <th>POSITION</th>
-      <th>DEPTARTMENT TYPE</th>
+      <th>DEPARTMENT TYPE</th>
       <th>CHANNEL</th>
       <th>ACCT SUBD</th>
       <th>ACCT NAME</th>
-      <th>UPDATED ACCT GOUP</th>
+      <th>UPDATED ACCT GROUP</th>
       <th>BRANCH CODE</th>
       <th>BRANCH NAME</th>
       <th>CDS NAME</th>
@@ -61,41 +70,32 @@
       <th>REST DAY</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-      <td><input></td>
-    </tr>
+
+  <tbody id="tableBody">
+    <!-- rows will be added here -->
   </tbody>
 </table>
 
-<p>
+<script>
+const columnCount = 26;
 
-</p>
+function addRow() {
+  const tbody = document.getElementById("tableBody");
+  const tr = document.createElement("tr");
+
+  for (let i = 0; i < columnCount; i++) {
+    const td = document.createElement("td");
+    const input = document.createElement("input");
+    td.appendChild(input);
+    tr.appendChild(td);
+  }
+
+  tbody.appendChild(tr);
+}
+
+// auto add first row
+addRow();
+</script>
 
 </body>
 </html>
